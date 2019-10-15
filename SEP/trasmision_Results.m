@@ -6,7 +6,7 @@
 %parámetros de línea larga.
 
 
-function T = trasmision_Results()
+function T = trasmision_Results(d, secc_trans, t1, t2, f, DMG, RMG, V, P, fp)
 
     R = tempFunctionRes(getRca(d, secc_trans, 5), t1, t2);
     
@@ -19,6 +19,7 @@ function T = trasmision_Results()
     Z = R + (1i*XL);
     Y = 1i*BC;
     
+    V_op = V/sqrt(3);
     I_op = operationCurrent(V, P, fp);
     
     s = line_Short(V_op, I_op, Z);
